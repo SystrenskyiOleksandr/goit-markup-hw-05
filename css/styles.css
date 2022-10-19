@@ -13,6 +13,10 @@
     --second-border-color: #EEEEEE;
     --overlay-background-color: #c4c4c4;
     --color-social: #AFB1B8;
+    
+    /* modal */
+    --transition-duration: 250ms;
+    --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -96,6 +100,11 @@ ul {
     margin: 0;
 }
 
+a {
+    transition: color 250ms;
+    transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
 .item:not(:last-child) {
     margin-right: 50px;
 }
@@ -142,6 +151,37 @@ ul {
     fill: currentColor;
 }
 
+.studio,
+.portfolio {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: currentColor;    
+}
+
+.studio::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 48px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+    left: 0;
+    bottom: 0;
+}
+
+.portfolio::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 78px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+    left: 0;
+    bottom: 0;
+}
 
 /* main */
 
@@ -216,13 +256,6 @@ ul {
     margin-top: 10px;
     }
 
-.text-position {
-    font-size: 16px;
-    line-height: 1.71;
-    letter-spacing: 0.03em;
-    /* margin-top: 10px; */
-    text-align: center;
-    }
 .title-name {
     color: var(--title-text-color);
     font-weight: 700;
@@ -239,12 +272,35 @@ ul {
 }
 
 .picture {
+    position: relative;
     margin-right: 30px;
-
+    
 }
 
 .picture:nth-child(3n) {
     margin-right: 0;
+}
+
+.work-hidden-window {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(47, 48, 58, 0.8);
+    width: 370px;
+    height: 70px;
+}
+
+.work-text {
+    font-weight: 700px;
+    font-size: 14px;
+    line-height: calc(16/14);
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--background-color);
 }
 
 /* our team */
@@ -496,6 +552,7 @@ ul {
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;
+
 }
 
 .flex-element {
@@ -520,6 +577,33 @@ ul {
 .link-portfolio:hover .global-link,
 .link-portfolio:focus .global-link {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.hidden-window {
+    position: relative;
+    overflow: hidden;
+}
+
+.hidden-text {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    padding: 63px 24px;
+    color: var(--background-color);
+    background-color: rgba(33, 150, 243, 0.9);;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.56;       
+    letter-spacing: 0.03em;
+    transform: translateY(100%);
+    transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
+.flex-element:hover .hidden-text {
+    transform: translateY(0%);
 }
 
 .sec-btn {
@@ -594,4 +678,58 @@ ul {
 .link-client:focus {
     border-color: var(--accent-color);
     fill: var(--accent-color);
+}
+
+/* modal */
+
+.backdrop {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+}
+
+.modal {
+    position: absolute;
+    margin-top: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 528px;
+    height: 581px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: var(--background-color);
+}
+
+.modal-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0;
+    color: var(--color-logo);
+    background-color: var(--background-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.modal-button svg {
+    fill: var(--color-logo);
 }
