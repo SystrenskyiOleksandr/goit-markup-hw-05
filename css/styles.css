@@ -501,6 +501,7 @@ ul {
 .link-social-footer {
     fill: var(--background-color);
     background-color: #FFFFFF1A;
+    transition: transform var(--transition-duration) var(--transition-timing-function);
 }
 
 /* portfolio */
@@ -568,6 +569,7 @@ ul {
 .link-portfolio {
     text-decoration: none;
     color: var(--title-text-color);
+    transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
 
 .link-portfolio:hover .global-link,
@@ -696,7 +698,7 @@ ul {
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
-    
+    visibility: hidden;
     }
 
 .backdrop.is-hidden .modal {
