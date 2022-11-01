@@ -114,6 +114,7 @@ ul {
     text-decoration: none;
     padding-top: 32px;
     padding-bottom: 32px;
+    transition-property: color;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
@@ -141,6 +142,7 @@ ul {
     padding-top: 32px;
     padding-bottom: 32px;
     align-items: center;
+    transition-property: color;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
     }
@@ -369,6 +371,7 @@ ul {
     color: var(--color-social);
     background-color: var(--background-color);
     border-radius: 50%;
+    transition-property: color, background-color;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
@@ -405,6 +408,7 @@ ul {
     font-size: 16px;
     line-height: 1.88;
     letter-spacing: 0.06em;
+    transition-property: background-color;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
@@ -418,6 +422,7 @@ ul {
     letter-spacing: 0.03em;
     padding: 6px 22px;
     min-width: 73px;
+    transition-property: background-color, color, box-shadow;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
@@ -457,6 +462,7 @@ ul {
     letter-spacing: 0.03em;
     text-decoration: none;
     margin-top: 20px;
+    transition-property: color;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
@@ -468,6 +474,7 @@ ul {
     font-size: 14px;
     line-height: 1.71;
     letter-spacing: 0.03em;
+    transition-property: color;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
@@ -516,6 +523,7 @@ ul {
 .link-social-footer {
     fill: var(--background-color);
     background-color: #FFFFFF1A;
+    transition-property: background-color;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
@@ -535,7 +543,7 @@ ul {
     padding: 0;
     overflow: hidden;
     border: 0;
-    clip: rect(0 0 0 0);
+    /* clip: rect(0 0 0 0); */
 }
 
 .link {
@@ -590,6 +598,7 @@ ul {
 .link-portfolio {
     text-decoration: none;
     color: var(--title-text-color);
+    transition-property: box-shadow;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
